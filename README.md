@@ -1,7 +1,7 @@
 ## Установка и запуск
 
 1. Клонировать репозиторий:
-git clone https://github.com/your-username/z-test-backend.git
+git clone https://github.com/nafana123/z-test-backend.git
 
 2. Запустить проект через Docker:
 docker-compose up --build -d
@@ -21,6 +21,22 @@ http://127.0.0.1:8000
 
 ```
 DATABASE_URL="mysql://root:root@127.0.0.1:3306/zebra_db?serverVersion=8.0.32&charset=utf8mb4"
+```
+## Генерация JWT-ключей
+
+Перед запуском приложения необходимо сгенерировать ключи для JWT (используется для авторизации пользователей):
+
+1. Введите команду:
+php bin/console lexik:jwt:generate-keypair
+
+Эта команда создаст приватный и публичный ключи, которые будут использоваться для создания и проверки JWT токенов.
+
+3. Убедитесь, что в вашем `.env` файле указаны пути к ключам. Пример:
+
+```dotenv
+JWT_SECRET_KEY=%kernel.project_dir%/config/jwt/private.pem
+JWT_PUBLIC_KEY=%kernel.project_dir%/config/jwt/public.pem
+JWT_PASSPHRASE=your_jwt_passphrase
 ```
 
 ## Аутентификация
