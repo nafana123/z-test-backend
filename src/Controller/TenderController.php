@@ -78,7 +78,7 @@ class TenderController extends AbstractController
         }
 
         try {
-            $tender = $this->tenderService->createTender($dto);
+            $tender = $this->tenderService->createTender((array)$dto);
         } catch (\Exception $e) {
             return $this->json(['error' => $e->getMessage()], 400);
         }

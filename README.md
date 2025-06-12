@@ -3,16 +3,19 @@
 1. Клонировать репозиторий:
 git clone https://github.com/nafana123/z-test-backend.git
 
-2. Запустить проект через Docker:
+2. Установить composer:
+composer install
+
+3. Запустить проект через Docker:
 docker-compose up --build -d
 
-3. Применить миграции:
+4. Применить миграции:
 php bin/console doctrine:migrations:migrate
 
-4. Импортировать тестовые данные:
+5. Импортировать тестовые данные:
 php bin/console app:import-tenders
 
-5. Приложение будет доступно по адресу:
+6. Приложение будет доступно по адресу:
 http://127.0.0.1:8000
 
 ## Подключение к БД
@@ -29,16 +32,6 @@ DATABASE_URL="mysql://root:root@127.0.0.1:3306/zebra_db?serverVersion=8.0.32&cha
 1. Введите команду:
 ```
 php bin/console lexik:jwt:generate-keypair
-```
-
-Эта команда создаст приватный и публичный ключи, которые будут использоваться для создания и проверки JWT токенов.
-
-3. Убедитесь, что в вашем `.env` файле указаны пути к ключам. Пример:
-
-```dotenv
-JWT_SECRET_KEY=%kernel.project_dir%/config/jwt/private.pem
-JWT_PUBLIC_KEY=%kernel.project_dir%/config/jwt/public.pem
-JWT_PASSPHRASE=your_jwt_passphrase
 ```
 
 ## Аутентификация

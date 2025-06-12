@@ -17,7 +17,7 @@ class TenderService
         $this->tenderRepository = $tenderRepository;
     }
 
-    public function createTender($data): Tender
+    public function createTender(array $data): Tender
     {
         $updatedAt = \DateTime::createFromFormat('Y-m-d H:i:s', $data['updatedAt']);
 
